@@ -30,28 +30,36 @@
 - BEM 방법론 최대한 사용
 - swiper를 사용한 section 최대한 비슷하게 구현
 
-1. Nav Section
+  **1. Nav Section**
     - 드롭다운 구현
-2. Hero Section
+
+  **2. Hero Section**
     - active된 slide에 따라 페이지 번호 렌더링
     - 기본 pagination bullet이 active될 때 가운데 정렬
     - hero-more에 존재하는 추가 pagination과 기본 pagination 연동
-3. Searching Section
+
+  **3. Searching Section**
     - 검색창 클릭 시 특정 스크롤 위치로 이동
-4. New Curation Section
+
+  **4. New Curation Section**
     - slide가 남아있지 않은 경우 swiper-navigation-button 제거
-5. Free / Welcome / New Course Sectoin
+
+  **5. Free / Welcome / New Course Sectoin**
     - slide가 남아있지 않은 경우 swiper-navigation-button blur 처리 및 클릭 불가능
     - course-content hover할 경우 cover 제공
     - cover의 좌측 하단의 button hover시 툴팁 제공
-6. Roadmap Section
+
+  **6. Roadmap Section**
     - slide가 남아있지 않은 경우 swiper-navigation-button blur 처리 및 클릭 불가능
-7. Review Section
+
+  **7. Review Section**
     - review swiper item을 스크롤로 이동 가능
-8. Footer Section
+
+  **8. Footer Section**
     - menu 영역의 클릭 가능한 부분 hover시 underline 추가
     - meta 영역의 클릭 가능한 부분 hover시 색상 변경
-9. Chat Section
+
+  **9. Chat Section**
     - toggler 클릭 시 채팅창 등장
 
 ## 실제 사이트와 다르게 수정한 부분 & 어려웠던 부분
@@ -59,13 +67,10 @@
 - hero section의 내부의 이미지와 맞지 않은 배경색 수정
 - 검색창 padding-right 추가해서 검색 아이콘과 겹치지 않게 수정
 - 사용된 아이콘이 Font Awesome 사이트에 없어서 google icon으로 대체하거나 생략
-- swiper를 사용하면 width, heigth, margin 등을 알아서 부여해 주는데<br>
-스타일을 적용할 때 필요없다고 생각해서 일부분 선택자를 생략했더니<br>
-css 우선순위에서 밀려서 원하는 스타일이 적용되지 않아 애먹음
+- swiper를 사용하면 width, heigth, margin 등을 알아서 부여해 주는데 스타일을 적용할 때 필요없다고 생각해서 일부분 선택자를 생략했더니 css 우선순위에서 밀려서 원하는 스타일이 적용되지 않아 애먹음
 
 ## 맞게 구현한건지 확실하지 않은 부분
-- swiper-pagination의 bullet이 active가 되면 가운데 정렬을 해주고 싶어서<br>
-JS에서 특정 pixel만큼 transform를 해줌
+- swiper-pagination의 bullet이 active가 되면 가운데 정렬을 해주고 싶어서 JS에서 특정 pixel만큼 transform를 해줌
 - main의 검색창 클릭시 화면 이동을 JS의 scrollTo로 구현
 
 ## 구현하지 못한 부분 & 아쉬운 부분
@@ -80,3 +85,12 @@ JS에서 특정 pixel만큼 transform를 해줌
 - 코드 정리 매우 안 좋음
 - HTML의 반복되는 요소들(course-content)을 JS로 렌더링하지 못함
   - HTMl의 코드가 매우 길어짐
+
+## 실제 사이트를 클론 코딩하면서 느낀 점
+
+- 실제 사이트에서 flex를 굉장히 많이 사용함
+- 메뉴와 같이 가로 방향으로 나열한 요소들을 space-between으로 정렬할 때 요소 사이에 gap이나 margin 추가함
+  - container가 줄어들었을 때 완벽하게 붙지 않게 하기 위함
+- 특정 요소마다 글자 스타일(font-size, color, font-weight ...)을 적용하기 보다는 특정 class를 추가하여 해당 스타일을 적용하는 방식을 사용함
+- 위와 마찬가지로 비슷하게 생긴 요소들(button, container, box ...)은 특정 class를 추가하여 스타일을 작용하는 방식을 사용함
+- 따라서 어떤 요소에 클래스를 붙인다는 것이 굉장히 체계적이라는 것을 느낌
