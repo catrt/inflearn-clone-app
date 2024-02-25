@@ -556,13 +556,13 @@ nav {
       flex-grow: 1;
 
       &__left {
-        padding: 8px 0;
         display: flex;
 
         > ul {
           display: flex;
 
           > li {
+            padding: 8px 0;
             display: flex;
             position: relative;
 
@@ -594,7 +594,7 @@ nav {
                 padding: 8px 0;
                 background-color: #fff;
                 position: absolute;
-                top: calc(100% + 4px);
+                top: calc(100% - 4px);
                 right: 0;
 
                 > li {
@@ -627,7 +627,7 @@ nav {
                 border-style: solid;
                 border-width: 16px;
                 position: absolute;
-                top: calc(100% - 22px);
+                top: calc(100% - 30px);
                 left: 0;
                 right: 0;
                 width: 0;
@@ -641,7 +641,7 @@ nav {
                 border-style: solid;
                 border-width: 16px;
                 position: absolute;
-                top: calc(100% - 21px);
+                top: calc(100% - 28px);
                 left: 0;
                 right: 0;
                 width: 0;
