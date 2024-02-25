@@ -2,7 +2,6 @@
   "name": "kdt8-m1",
   "version": "1.0.0",
   "description": "패스트캠퍼스 KDT8_M1 원하는 웹사이트 레이아웃 클론 코딩",
-  "main": "index.html",
   "scripts": {
     "dev": "parcel index.html",
     "build": "parcel build index.html"
