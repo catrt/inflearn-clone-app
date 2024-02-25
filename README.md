@@ -6,7 +6,7 @@
 
 실제 사이트 : [인프런](https://www.inflearn.com/)
 
-클론 사이트 : [인프런 - CATRT]()
+클론 사이트 : [인프런 - CATRT](https://main--calm-starburst-03b82b.netlify.app/)
 
 ## 기간
 
