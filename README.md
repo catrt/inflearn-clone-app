@@ -94,3 +94,10 @@
 - 특정 요소마다 글자 스타일(font-size, color, font-weight ...)을 적용하기 보다는 특정 class를 추가하여 해당 스타일을 적용하는 방식을 사용함
 - 위와 마찬가지로 비슷하게 생긴 요소들(button, container, box ...)은 특정 class를 추가하여 스타일을 작용하는 방식을 사용함
 - 따라서 어떤 요소에 클래스를 붙인다는 것이 굉장히 체계적이라는 것을 느낌
+
+## 리팩토링 이후 변경점
+
+- active된 bullet의 위치에 따라서 자동화된 가운데 정렬을 구현
+- swiper에서 아직 남은 slide가 존재한다는 의미의 blur 구현
+- main.scss에 모든 코드가 작성되었던 부분을 @use, @forward를 이용해 여러 scss 파일로 구분
+- nav의 dropdown 구조를 JS로 렌더링

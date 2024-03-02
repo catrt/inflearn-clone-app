@@ -1,16 +1,31 @@
-// Hero Swiper Bullet Data
-const heroBulletData = [
-  "AI서비스+서버리스",
-  "임베디드-MCU",
-  "Vue.js 로드맵",
-  "백엔드 성능 개선",
-  "Amazon EKS",
-  "지금 할인중 💸",
-  "Top 50 👑",
-  "로드맵 🌱",
-  "0원 취업교육 🔥",
-  "왕초보 모여라 😎",
-]
+import navDropdownItems from "../data/navDropdownItems"
+import heroBulletNames from "../data/heroBulletNames"
+
+// Nav Dropdown Render
+const navMenuLectureEl = document.querySelector("nav .menu .lecture")
+navMenuLectureEl.append(createDropdown(navDropdownItems))
+
+function createDropdown(items) {
+  const ulEl = document.createElement("ul")
+  ulEl.classList.add("dropdown")
+
+  items.forEach(item => {
+    if(item["separator"]) {
+      ulEl.innerHTML += `<hr class="separator">`
+    } else {
+      const liEl = document.createElement("li")
+      liEl.innerHTML += `<a href="javascript:void(0)">${item["top"]}</a>`
+
+      if(item["sub"]) {
+        liEl.append(createDropdown(item["sub"]))
+      }
+
+      ulEl.append(liEl)
+    }
+  })
+
+  return ulEl;
+}
 
 // Hero Swiper
 const heroCurrentIndexEl = document.querySelector(".hero .current-index")
@@ -34,7 +49,7 @@ let heroSwiper = new Swiper('.hero .swiper', {
       clickable: true,
       renderBullet: function (index) {
         return /* html */ `
-          <span class="swiper-pagination-bullet hero-bullet hero-bullet${index+1}">${heroBulletData[index]}</span>
+          <span class="swiper-pagination-bullet hero-bullet hero-bullet${index+1}">${heroBulletNames[index]}</span>
         `
       },
   },
@@ -49,7 +64,7 @@ let heroMoreSwiper = new Swiper(".hero .swiper", {
     clickable: true,
     renderBullet: function (index) {
       return /* html */ `
-        <span class="swiper-pagination-bullet hero-bullet hero-bullet${index+1}">${heroBulletData[index]}</span>
+        <span class="swiper-pagination-bullet hero-bullet hero-bullet${index+1}">${heroBulletNames[index]}</span>
       `
     },
   },
@@ -74,19 +89,39 @@ heroSwiperPlayerEl.addEventListener("click", () => {
 })
 
 // Hero Swiper Pagination Bullet Slider
+const heroPaginationContainerEl = document.querySelector(".hero .swiper-pagination-container")
+const heroPaginationEl = heroPaginationContainerEl.querySelector(".swiper-pagination")
+const heroBulletEls = heroPaginationEl.querySelectorAll(".swiper-pagination-bullet")
+const heroLeftGradientEl = heroPaginationContainerEl.querySelector(".left-gradient")
+const heroRightGradientEl = heroPaginationContainerEl.querySelector(".right-gradient")
 heroSwiper.on("slideChange", () => {
   var heroSwiperIndex = heroSwiper.realIndex + 1
   heroCurrentIndexEl.textContent = heroSwiperIndex
 
-  const heroBulletContainerEl = document.querySelector(".hero .swiper-pagination-container .swiper-pagination")
-  if(heroSwiperIndex === 1 || heroSwiperIndex === 2 || heroSwiperIndex === 3 || heroSwiperIndex === 4) {
-    heroBulletContainerEl.style.transform = "translateX(0)"
-  } else if(heroSwiperIndex === 5) {
-    heroBulletContainerEl.style.transform = "translateX(-130px)"
-  } else if(heroSwiperIndex === 6) {
-    heroBulletContainerEl.style.transform = "translateX(-260px)"
+  var heroPaginationContainerWidth = heroPaginationContainerEl.offsetWidth
+  var heroPaginationWidth = heroPaginationEl.offsetWidth
+  var heroBulletWidth = heroBulletEls[heroSwiperIndex-1].offsetWidth
+  var heroBulletLeft = heroBulletEls[heroSwiperIndex-1].offsetLeft
+  var heroBulletRight = heroPaginationWidth - heroBulletLeft - heroBulletWidth
+  if(heroPaginationContainerWidth / 2 >= heroBulletLeft + heroBulletWidth / 2) {
+    heroPaginationEl.style.transform = "translateX(0)"
   } else {
-    heroBulletContainerEl.style.transform = "translateX(-340px)"
+    if(heroPaginationContainerWidth / 2 < heroBulletRight + heroBulletWidth / 2) {
+      heroPaginationEl.style.transform = `translateX(-${heroBulletLeft + heroBulletWidth / 2 - heroPaginationContainerWidth / 2}px)`
+    } else {
+      heroPaginationEl.style.transform = `translateX(-${heroPaginationWidth - heroPaginationContainerWidth}px)`
+    }
+  }
+
+  if(heroPaginationContainerWidth / 2 >= heroBulletLeft + heroBulletWidth / 2) {
+    heroLeftGradientEl.classList.remove("active")
+  } else {
+    heroLeftGradientEl.classList.add("active")
+  }
+  if(heroPaginationContainerWidth / 2 < heroBulletRight + heroBulletWidth / 2) {
+    heroRightGradientEl.classList.add("active")
+  } else {
+    heroRightGradientEl.classList.remove("active")
   }
 })
 

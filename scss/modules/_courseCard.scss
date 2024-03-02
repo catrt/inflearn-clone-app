@@ -1,0 +1,283 @@
+.course-card {
+  &:hover {
+    .course-card-cover {
+      display: block;
+    }
+  }
+
+  &-item {
+    &__image {
+      position: relative;
+      letter-spacing: normal;
+
+      img {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+      .type {
+        color: #055160;
+        font-size: 15px;
+        font-weight: 700;
+        line-height: 1;
+        padding: 5.25px 9.75px;
+        border: 1px solid #0dcaf0;
+        border-radius: 0 4px 0 0;
+        background: #6edff6;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+      }
+      .discount {
+        color: #fff;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 21px;
+        padding: 2px 2px 2px 4px;
+        border: 1px solid #fff;
+        border-right: none;
+        border-top-left-radius: 3px;
+        border-bottom-left-radius: 3px;
+        background: #ff6318;
+        position: absolute;
+        top: 5%;
+        right: 0;
+
+        > small {
+          font-size: 12px;
+        }
+      }
+    }
+    &__content {
+      padding: 8px 0;
+      letter-spacing: normal;
+
+      h4 {
+        color: #454545;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 24px;
+        height: 48px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        white-space: pre-wrap;
+      }
+      .instructor {
+        color: #7d7d7d;
+        font-size: 14.4px;
+        line-height: 21.6px;
+      }
+      .status {
+        color: #495057;
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 1.5;
+        border-radius: 4px;
+        padding: 2px 9px;
+        background: #adb5bd;
+        display: inline;
+      }
+      .rating {
+        width: 72px;
+        height: 24px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        
+        &-star {
+          display: flex;
+
+          > svg {
+            color: #fdcc11;
+            width: 14.4px;
+            height: 14.4px;
+            line-height: 24px;
+            display: block;
+          }
+        }
+
+        .review-cnt {
+          color: #4a4a4a;
+          font-size: 8px;
+          position: absolute;
+          bottom: 4.8px;
+          left: 72px;
+        }
+      }
+      .price {
+        color: #175cbe;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 24px;
+
+        > del {
+          color: #595959;
+          font-weight: 500;
+          font-size: 14.4px;
+          opacity: .75;
+          margin-right: 1px;
+        }
+      }
+      .tags {
+        margin: 8px auto 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+
+        .tag {
+          color: #454545;
+          font-size: 12px;
+          line-height: 1.5;
+          height: 2em;
+          border-radius: 4px;
+          padding: 0 9px;
+          background-color: #e4fafb;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          
+          &.participant {
+            background-color: #f6d5ea
+          }
+
+          &.sale {
+            background-color: #ffc8c7;
+          }
+        }
+      }
+    }
+  }
+  &-cover {
+    font-size: 13px;
+    letter-spacing: normal;
+    background-color: rgba(0,0,0,.8);
+    padding: 12px;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: none;
+    cursor: pointer;
+
+    &__content {
+      h4 {
+        color: #fff;
+        font-size: 15.2px;
+        line-height: 1.25;
+        font-weight: 700;
+        margin-bottom: 12px;
+      }
+      .infos {
+        color: #c5ebf8;
+        line-height: 19.2px;
+
+        > div {
+          margin-bottom: 1.12px;
+          display: flex;
+
+          svg {
+            margin-right: 4.8px;
+            width: 16px;
+          }
+
+          span {
+            width: calc(100% - 20.8px);
+          }
+
+          &:not(:last-child) span {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+
+          &:last-child svg {
+            align-self: flex-start;
+            padding-top: 1px;
+          }
+        }
+      }
+    }
+    &__btns {
+      color: #fff;
+      margin-right: 1.4px;
+      margin-bottom: 8px;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+
+      > div {
+        font-size: 16.25px;
+        line-height: 0.8125px;
+        text-align: center;
+        vertical-align: -0.075em;
+        margin-top: 4px;
+        position: relative;
+
+        &:hover {
+          &::before {
+            display: block;
+            color: rgba(0,0,0,.7);
+            font-size: 12px;
+            line-height: 18px;
+            width: max-content;
+            border-radius: 4px;
+            padding: 6.4px 12.8px;
+            background-color: rgba(255,221,87,.9);
+            position: absolute;
+            top: auto;
+            bottom: 50%;
+            left: auto;
+            right: 100%;
+            transform: translate(-8px, 50%);
+          }
+
+          &::after {
+            content: "";
+            display: block;
+            border-width: 8px;
+            border-style: solid;
+            border-color: transparent transparent transparent rgba(255,221,87,.9);
+            position: absolute;
+            top: calc(50% - 8px);
+            bottom: auto;
+            left: auto;
+            right: calc(100% - 9px);
+          }
+        }
+
+        &.cart-btn {
+          font-size: 21px;
+          padding-bottom: 1px;
+
+          &:hover {
+            color: #c5ebf8;
+
+            &::before {
+              content: "수강바구니에 추가";
+            }
+          }
+        }
+        &.like-btn {
+          &:hover {
+            color: #ff6c5c;
+
+            &::before {
+              content: "좋아요에 추가";
+            }
+          }
+        }
+        &.add-btn {
+          &:hover::before {
+            content: "내 폴더에 추가"
+          }
+        }
+      }
+
+    }
+  }
+}

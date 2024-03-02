@@ -1,0 +1,65 @@
+@use "../../modules/swiperNavBtn";
+@use "../../modules/courseCard";
+
+.free-course {
+  padding: 24px 0;
+
+  &__header {
+    margin-bottom: 16px;
+
+    a {
+      color: #1e1e1e;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      h3 {
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 36px;
+        letter-spacing: normal;
+        text-decoration: none;
+      }
+
+      i {
+        font-size: 29px;
+      }
+    }
+
+    p {
+      color: #757575;
+      margin-top: 4px;
+      font-size: 15px;
+      letter-spacing: normal;
+    }
+  }
+
+  &__swiper {
+    overflow: hidden;
+
+    .swiper-wrapper {
+      padding: 6px 0;
+    }
+  }
+
+  &__prev-btn,
+  &__next-btn {
+    background-color: #fff;
+    opacity: .85;
+    top: calc(50% + 18px);
+
+    &.swiper-button-disabled {
+      color: #efefef;
+      border: 1px solid #efefef;
+      box-shadow: 0 2px 8px 0 transparent;
+      cursor: not-allowed;
+      display: flex;
+    }
+  }
+  &__prev-btn {
+    left: 10px;
+  }
+  &__next-btn {
+    right: 10px;
+  }
+}

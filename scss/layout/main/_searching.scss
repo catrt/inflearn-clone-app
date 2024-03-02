@@ -1,0 +1,73 @@
+.searching {
+  padding-top: 48px;
+  padding-bottom: 24px;
+  margin-top: 65px;
+  
+  .inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1 {
+      color: #363636;
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 27px;
+      letter-spacing: normal;
+      margin-bottom: 20px;
+    }
+
+    .search {
+      max-width: 580px;
+      width: 100%;
+      position: relative;
+      
+      input {
+        color: #5f5f5f;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: normal;
+        width: 100%;
+        background-color: rgba(29,192,120,.12);
+        border: 1px solid rgba(29,192,120,.24);
+        box-shadow: 0 2px 4px 0 rgba(0,0,0,.1);
+        padding: 15px 60px 13px 20px;
+        border-radius: 28px;
+        transition: all .2s ease;
+
+        &::placeholder {
+          color: #9FCAB7;
+          line-height: 24px;
+          font-family: Pretendard, -apple-system, BlinkMacSystemFont,
+            system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo",
+            "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji",
+            "Segoe UI Symbol", sans-serif;
+        }
+
+        &:focus {
+          outline: none;
+          box-shadow: 0 4px 8px 0 rgba(0,0,0,.2);
+          border: 1px solid #dedede;
+          background-color: #fff;
+
+          &::placeholder {
+            color: #D8D8D8;
+          }
+        }
+      }
+
+      .search-icon {
+        padding: 5px 12px;
+        position: absolute;
+        top: 50%;
+        right: 19px;
+        transform: translateY(-50%);
+        cursor: pointer;
+
+        i {
+          font-size: 21px;
+        }
+      }
+    }
+  }
+}

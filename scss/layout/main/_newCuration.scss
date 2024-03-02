@@ -1,0 +1,64 @@
+@use "../../modules/swiperNavBtn";
+
+.new-curation {
+  .inner {
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+
+  &__swiper {
+    overflow: hidden;
+
+    .swiper-wrapper {
+      width: fit-content;
+      display: flex;
+      gap: 24px;
+
+      cursor: grab;
+      &:active { cursor: grabbing; }
+
+      .swiper-slide {
+        width: 76px !important;
+        height: 93px;
+        display: flex;
+        align-items: center;
+  
+        a {
+          text-decoration: none;
+          width: max-content;
+          margin: 0 auto;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 8px;
+  
+          img {
+            width: 36px;
+            height: 36px;
+            object-fit: cover;
+            display: block;
+          }
+  
+          p {
+            color: #000;
+            font-size: 14px;
+            line-height: 14px;
+            font-weight: 500;
+            letter-spacing: normal;
+          }
+        }
+      }
+    }
+  }
+
+  &__prev-btn,
+  &__next-btn {
+    top: calc(50% - 29.5px);
+  }
+  &__prev-btn {
+    left: 10px;
+  }
+  &__next-btn {
+    right: 10px;
+  }
+}

@@ -1,0 +1,30 @@
+.swiper-prev-btn,
+.swiper-next-btn {
+  width: 44px;
+  height: 44px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,.1);
+  background: hsla(0,0%,100%,.85);
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 11;
+  cursor: pointer;
+
+  > div { 
+    font-size: 32px;
+  }
+
+  &.swiper-button-disabled {
+    display: none; 
+  }
+}
+.swiper-prev-btn > div {
+  transform: translate(-1px, 1px); 
+}
+.swiper-next-btn > div {
+  font-weight: 380;
+  transform: translate(1px, 1px); 
+}
